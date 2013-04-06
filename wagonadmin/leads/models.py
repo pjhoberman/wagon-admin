@@ -5,5 +5,5 @@ class Lead(models.Model):
     description = models.TextField(null=True, blank=True, help_text="More details go here")
     date_entered = models.DateField(auto_now_add=True)
     date_due = models.DateField(blank=True, null=True)
-    entered_by = models.ForeignKey('auth.User', related_name="lead_entered_by")
-    assigned_to = models.ForeignKey('auth.User', related_name="lead_assigned_to")
+    entered_by = models.ForeignKey('auth.User', related_name="lead_entered_by", null=True, blank=True)
+    assigned_to = models.ForeignKey('auth.User', related_name="lead_assigned_to", null=True, blank=True)
