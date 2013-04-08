@@ -3,6 +3,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=140)
 
+    def __unicode__(self):
+        return unicode(self.name)
+
 class Lead(models.Model):
     summary = models.CharField(max_length=140, help_text="Describe it in a tweet or less")
     description = models.TextField(null=True, blank=True, help_text="More details go here")
@@ -14,4 +17,4 @@ class Lead(models.Model):
     contact_email = models.CharField(max_length=140, help_text="What's their email address?", blank=True, null=True)
     event_date = models.DateField(blank=True, null=True, help_text="Does this lead have an exipration?")
     notes = models.TextField(null=True, blank=True, help_text="Anything else?")
-    lead_category = models.ManyToManyField(Category)
+    lead_category = models.ManyToManyField(Category, blank=True, null=True)
