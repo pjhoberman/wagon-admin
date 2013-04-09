@@ -15,6 +15,9 @@ class Status(models.Model):
     def __unicode__(self):
         return unicode(self.name)
 
+    class Meta:
+        verbose_name_plural = "statuses"
+
 class Lead(models.Model):
     summary = models.CharField(max_length=140, help_text="Describe it in a tweet or less")
     description = models.TextField(null=True, blank=True, help_text="More details go here")
